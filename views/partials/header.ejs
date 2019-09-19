@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Recipe App</title>
+</head>
+<body>
+    
+    <div class="main-container">
+        <header id="header">
+            <!-- Logo -->
+            <a id="logo-container" href="/">
+            <div >
+                <img src="/images/pot-of-food.svg" alt="">
+                <Strong>Recipee!!</Strong>
+            </div>
+            </a>
+
+            <!-- NavBar -->
+            <div id="nav-bar">
+                <li class="nav-items"><a href="#" onclick="openSlideMenu(1)">Sing Up</a></li>
+                <li class="nav-items"><a href="#" onclick="openSlideMenu(0)">Log In</a></li>
+            </div>
+
+            <!-- Log-In Side Nav -->
+            <div class="side-nav">
+                <a href="#" class="btn-close" onclick="closeSlideMenu(0)">&times;</a>
+                <form class="form-container" action="">
+                    <div class="input-container">
+                        <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
+                        <input type="text" name="" id="" placeholder="Username">
+                    </div>
+                    <div class="input-container">
+                        <span><img src="/images/mdi-textbox-password.svg" alt=""></span>
+                        <input type="password" name="" id="" placeholder="Password">
+                    </div>
+                    <button class="btn-primary">Log In</button>
+                </form>
+            </div>
+            <!-- Sign-Up Side Nav -->
+            <div class="side-nav">
+                <a href="#" class="btn-close" onclick="closeSlideMenu(1)">&times;</a>
+                <form class="form-container" action="">
+                    <div class="input-container">
+                        <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
+                        <input type="text" name="" id="" placeholder="Username">
+                    </div>
+                    <div class="input-container">
+                        <span><img src="/images/mdi-textbox-password.svg" alt=""></span>
+                        <input type="text" name="" id="" placeholder="Password">
+                    </div>
+                    <div class="input-container">
+                        <span><img src="/images/si-glyph_badge-name.svg" alt=""></span>
+                        <input type="text" name="" id="" placeholder="Name">
+                    </div>
+                    <div class="input-container">
+                        <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
+                        <input type="password" name="" id="" placeholder="E-Mail">
+                    </div>
+                    <button class="btn-primary">Log In</button>
+                </form>
+            </div>
+        </header>
