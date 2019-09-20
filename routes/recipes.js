@@ -32,8 +32,14 @@ router.post("/", (req, res) => {
 
 
 //show
-router.get("/ddd", (req, res) =>{
-    res.render("recipes/show");
+router.get("/:id", (req, res) =>{
+    Recipe.findById(req.params.id, (err, foundRecipe) => {
+        if(err){
+            console.log(err);
+        } else{
+            res.render("recipes/show", { recipe: foundRecipe });
+        }
+    });
 });
 
 module.exports = router;

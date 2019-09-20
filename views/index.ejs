@@ -11,184 +11,36 @@
             <a href="/recipes/new" class="btn-primary">Add new <img src="/images//plus.svg" alt=""></a>
         </div>
         <div class="card-container">
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>  
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
+            <% for(let i = recipes.length - 1; i >= 0; i--){ %>
+                <a href="/recipes/<%= recipes[i]._id %>">
+                <div class="card">
+                    <img class="card-image" src="<%= recipes[i].image %>" alt="">
+                    <div class="time">
+                        <Strong><%= recipes[i].time %></Strong>
+                        <span><img src="/images/fa-solid_clock.svg" alt=""></span>
+                    </div>  
+                    <div class="card-rating">
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                    </div>
+                    <div class="card-title">
+                        <h2><%= recipes[i].name %></h2>
+                    </div>
                 </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
-            <a href="show.html">
-            <div class="card">
-                <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-                <div class="time">
-                    <Strong>60 min</Strong>
-                    <span><img src="/images/fa-solid_clock.svg" alt=""></span>
-                </div>
-                <div class="card-rating">
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                    <span><img src="/images/Star.svg" alt=""></span>
-                </div>
-                <div class="card-title">
-                    <h2>Lorem Ipsum</h2>
-                </div>
-            </div>
-            </a>
+                </a>
+            <% } %>
         </div>
         <!-- View more  -->
+        <a href="/recipes">
         <div id="view-more">
             <div></div>
             <button class="btn-primary">View more</button>
-            <a href="/recipes"><img src="/images/arrow-down.svg" alt=""></a>
+            <img src="/images/arrow-down.svg" alt="">
         </div>
+        </a>
     </div>
 
 

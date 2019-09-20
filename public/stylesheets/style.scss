@@ -406,7 +406,8 @@ body{
         background: $grey-3;
         margin: 0;
         padding: 0.5rem 1rem;
-        border-radius: 13px;;
+        border-radius: 13px;
+        white-space: pre-wrap;
     }
     hr{
         border: solid 1px $grey-seccondary;

@@ -542,6 +542,7 @@ body {
   margin: 0;
   padding: 0.5rem 1rem;
   border-radius: 13px;
+  white-space: pre-wrap;
 }
 
 #show-meal hr {
