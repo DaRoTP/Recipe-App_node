@@ -6,9 +6,9 @@ var RecipeSchema = new mongoose.Schema({
     time: String,
     price: String,
     image: String,
-    ingridents: String,
+    ingredients: String,
     method: String,
-    rating: Number,
+    rating: {type: Number, default: 0},
     author: {
         id: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
         username: String
