@@ -24,7 +24,9 @@
         </form>
     </section>
     <section>
-    <h2 class="center-text">My Posts</h2>
+        <% if(currentUser){ %>
+    <h2 class="center-text"><%= currentUser.username %>></h2>
+    <% } %>
     <!-- Users Posts -->
     <div class="card-container">
         <a href="show.html">

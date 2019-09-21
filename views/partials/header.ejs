@@ -22,21 +22,26 @@
 
             <!-- NavBar -->
             <div id="nav-bar">
+                <% if(!currentUser){ %>
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(1)">Sing Up</a></li>
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(0)">Log In</a></li>
+                <% }else { %>
+                    <li class="nav-items"><%= currentUser.username %></li>
+                <li class="nav-items"><a href="/logout" >Log Out</a></li>
+                <% } %>
             </div>
 
             <!-- Log-In Side Nav -->
             <div class="side-nav">
                 <a href="#" class="btn-close" onclick="closeSlideMenu(0)">&times;</a>
-                <form class="form-container" action="">
+                <form class="form-container" action="/login" method="POST">
                     <div class="input-container">
                         <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
-                        <input type="text" name="" id="" placeholder="Username">
+                        <input type="text" name="username" id="" placeholder="Username">
                     </div>
                     <div class="input-container">
                         <span><img src="/images/mdi-textbox-password.svg" alt=""></span>
-                        <input type="password" name="" id="" placeholder="Password">
+                        <input type="password" name="password" id="" placeholder="Password">
                     </div>
                     <button class="btn-primary">Log In</button>
                 </form>
@@ -44,24 +49,24 @@
             <!-- Sign-Up Side Nav -->
             <div class="side-nav">
                 <a href="#" class="btn-close" onclick="closeSlideMenu(1)">&times;</a>
-                <form class="form-container" action="">
+                <form class="form-container" action="/register" method="POST">
                     <div class="input-container">
                         <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
-                        <input type="text" name="" id="" placeholder="Username">
+                        <input type="text" name="username" id="" placeholder="Username">
                     </div>
                     <div class="input-container">
                         <span><img src="/images/mdi-textbox-password.svg" alt=""></span>
-                        <input type="text" name="" id="" placeholder="Password">
+                        <input type="text" name="password" id="" placeholder="Password">
                     </div>
                     <div class="input-container">
                         <span><img src="/images/si-glyph_badge-name.svg" alt=""></span>
-                        <input type="text" name="" id="" placeholder="Name">
+                        <input type="text" name="name" id="" placeholder="Name">
                     </div>
                     <div class="input-container">
                         <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
-                        <input type="password" name="" id="" placeholder="E-Mail">
+                        <input type="email" name="email" id="" placeholder="E-Mail">
                     </div>
-                    <button class="btn-primary">Log In</button>
+                    <button class="btn-primary">Sign Up</button>
                 </form>
             </div>
         </header>
