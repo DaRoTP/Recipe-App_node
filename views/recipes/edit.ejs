@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<div class="box">
+    <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+        <div class="input-box">
+            <div class="input-container">
+                <span><img src="/images/ant-design_tag-fill.svg" alt=""></span>
+                <input type="text" name="recipe[name]" id="" placeholder="Name" value="<%= recipe.name %>">
+            </div>
+            <div class="input-container">
+                <span><img src="/images/fa-solid_clock.svg" alt=""></span>
+                <input type="text" name="recipe[time]" id="" placeholder="Time" value="<%= recipe.time %>">
+            </div>
+            <div class="input-container">
+                <span><img src="/images/fa-regular_money-bill-alt.svg" alt=""></span>
+                <input type="text" name="recipe[price]" id="" placeholder="Price" value="<%= recipe.price %>">
+            </div>
+            <div class="input-container">
+                <span><img src="/images/entypo-image-inverted.svg" alt=""></span>
+                <input type="text" name="recipe[image]" id="" placeholder="Image" value="<%= recipe.image %>">
+            </div>
+            <div class="input-container">
+                <span><img src="/images/entypo-box.svg" alt=""></span>
+                <textarea placeholder="Ingredients..." name="recipe[ingredients]" id="" cols="30" rows="10"><%= recipe.ingredients %></textarea>
+            </div>
+        </div>
+        <div class="input-container">
+            <span><img src="/images/fa-solid_clipboard-list.svg" alt=""></span>
+            <textarea placeholder="Method..." name="recipe[method]" id="" cols="30" rows="10"><%= recipe.method %></textarea>                    
+        </div>
+        <button class="btn-primary">Log In</button>
+    </form>
+    </div>
+
+
+<% include ../partials/footer %>

@@ -29,6 +29,26 @@ router.post("/", (req, res) => {
     });
 });
 
+//edit
+router.get("/:id/edit", (req, res) => {
+    Recipe.findById(req.params.id, (err, foundRecipe) => {
+        if(err){
+            console.log(err);
+        } else{
+            res.render("recipes/edit", {recipe: foundRecipe});
+        }
+    });
+});
+router.put("/:id", (req, res) => {
+    Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, (err, updatedRecipe) => {
+        if(err){
+            console.log(err);
+        } else{
+            res.redirect("/recipes/"+req.params.id);
+        }
+    });
+});
+
 
 //show
 router.get("/:id", (req, res) =>{
