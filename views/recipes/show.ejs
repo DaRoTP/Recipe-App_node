@@ -13,10 +13,14 @@
             </div>
         </div>
         <img class="show-image" src="<%= recipe.image %>" alt="">
+        <% if(currentUser && recipe.author.id.equals(currentUser._id)){ %>
         <div class="recipe-controls">
-            <a class="btn-delete" href="/recipe/delete"><img src="/images/ant-design_delete-fill.svg" alt=""></a>
+            <form action="/recipes/<%= recipe._id %>?_method=delete" method="POST">
+                <button class="btn-delete" ><img src="/images/ant-design_delete-fill.svg" alt=""></button>
+            </form>
             <a class="btn-edit" href="/recipes/<%= recipe._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
         </div>
+        <% } %>
         <div class="show-rating">
             <span><img src="/images/Star.svg" alt=""></span>
             <span><img src="/images/Star.svg" alt=""></span>

@@ -26,7 +26,9 @@
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(1)">Sing Up</a></li>
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(0)">Log In</a></li>
                 <% }else { %>
-                <li class="nav-items"><img src="/images/fa-solid_user-alt.svg" alt=""><%= currentUser.username %></li>
+                <a href="/user/<%= currentUser.username %>">
+                    <li class="nav-items"><img src="/images/fa-solid_user-alt.svg" alt=""><%= currentUser.username %></li>
+                </a>
                 <li class="nav-items"><a href="/logout" >Log Out</a></li>
                 <% } %>
             </div>

@@ -20,6 +20,8 @@ router.get("/new", (req, res) =>{
 });
 router.post("/", (req, res) => {
     let newRecipe = req.body.recipe;
+    var author = {id: req.user._id, username: req.user.username};
+    newRecipe.author = author;
     Recipe.create(newRecipe, (err) =>{
         if(err){
             console.log(err);
@@ -57,6 +59,18 @@ router.get("/:id", (req, res) =>{
             console.log(err);
         } else{
             res.render("recipes/show", { recipe: foundRecipe });
+        }
+    });
+});
+
+
+//delete
+router.delete("/:id", (req, res) => {
+    Recipe.findByIdAndRemove(req.params.id, (err) => {
+        if(err){
+            res.redirect("/");
+        } else{
+            res.redirect("/");
         }
     });
 });

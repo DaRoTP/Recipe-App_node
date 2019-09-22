@@ -6,9 +6,19 @@ const router = express.Router();
 User = require('../models/user');
 
 //show
-router.get("/", (req, res) =>{
-    res.render("user/show");
+router.get("/:username", (req, res) =>{
+    User.find({username: req.params.username}, (err, foundUser) => {
+        if(err){
+            console.log(err);
+            res.redirect("back");
+        } else{
+            res.render("user/show", {user: foundUser[0]});
+        }
+    });
+    
 });
+
+
 
 
 module.exports = router;
