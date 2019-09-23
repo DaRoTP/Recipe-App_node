@@ -534,12 +534,7 @@ form{
         @include grid-3{
             grid-template-columns: 1fr 1fr 1fr;
         }
-        a{
-            text-decoration: none;
-            color: black;
-            display: flex;
-            justify-content: center
-        }
+
     }
 }
   .center-text{

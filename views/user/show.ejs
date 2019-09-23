@@ -4,74 +4,43 @@
 <div class="user-grid">
     
     <section class="grey-box">
-        <form class="form-container" action="">
+        <form class="form-container" action="/user/<%= user.username %>?_method=PUT" method="POST">
             <div class="input-container">
                 <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
-                <input type="text" name="" id="" placeholder="Username" value="<%= user.username %>">
+                <input type="text" name="dbUser[username]" id="" placeholder="Username" value="<%= user.username %>">
             </div>
             <div class="input-container">
                 <span><img src="/images/si-glyph_badge-name.svg" alt=""></span>
-                <input type="text" name="" id="" placeholder="Name" value="<%= user.name %>">
+                <input type="text" name="dbUser[name]" id="" placeholder="Name" value="<%= user.name %>">
             </div>
             <div class="input-container">
                 <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
-                <input type="text" name="" id="" placeholder="E-Mail" value="<%= user.email %>">
+                <input type="text" name="dbUser[email]" id="" placeholder="E-Mail" value="<%= user.email %>">
             </div>
-            <button class="btn-primary">Log In</button>
+            <button class="btn-primary">Update</button>
         </form>
     </section>
     <section>
     <h2 class="center-text">My posts</h2>
     <!-- Users Posts -->
     <div class="card-container">
-        <a href="show.html">
+        <% for(let i = posts.length - 1; i >= 0; i--){ %>
+        
         <div class="card">
-            <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
+            <img class="card-image" src="<%= posts[i].image %>" alt="">
             <div class="card-controls">
-                <span><img class="btn-control" src="/images/ant-design_delete-fill.svg" alt=""></span>
-                <span><img class="btn-control" src="/images/dashicons-edit-large.svg" alt=""></span>
+                <form action="/recipes/<%= posts[i]._id %>?_method=delete" method="POST">
+                    <button class="btn-delete" ><img src="/images/ant-design_delete-fill.svg" alt=""></button>
+                </form>
+                <a class="btn-edit" href="/recipes/<%= posts[i]._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
             </div>
+            <a href="/recipes/<%= posts[i]._id %>">
             <div class="card-title">
-                <h2>Lorem Ipsum</h2>
+                <h2><%= posts[i].name %></h2>
             </div>
+            </a>
         </div>
-        </a>
-        <a href="show.html">
-        <div class="card">
-            <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-            <div class="card-controls">
-                <span><img class="btn-control" src="/images/ant-design_delete-fill.svg" alt=""></span>
-                <span><img class="btn-control" src="/images/dashicons-edit-large.svg" alt=""></span>
-            </div>
-            <div class="card-title">
-                <h2>Lorem Ipsum</h2>
-            </div>
-        </div>
-        </a>
-        <a href="show.html">
-        <div class="card">
-            <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-            <div class="card-controls">
-                <span><img class="btn-control" src="/images/ant-design_delete-fill.svg" alt=""></span>
-                <span><img class="btn-control" src="/images/dashicons-edit-large.svg" alt=""></span>
-            </div>
-            <div class="card-title">
-                <h2>Lorem Ipsum</h2>
-            </div>
-        </div>
-        </a>
-        <a href="show.html">
-        <div class="card">
-            <img class="card-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190208-delish-ramen-horizontal-093-1550096715.jpg?crop=1xw:0.9995002498750624xh;center,top&resize=480:*" alt="">
-            <div class="card-controls">
-                <span><img class="btn-control" src="/images/ant-design_delete-fill.svg" alt=""></span>
-                <span><img class="btn-control" src="/images/dashicons-edit-large.svg" alt=""></span>
-            </div>
-            <div class="card-title">
-                <h2>Lorem Ipsum</h2>
-            </div>
-        </div>
-        </a>
+        <% } %>
     </div>
     </section>
 </div>
