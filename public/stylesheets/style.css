@@ -36,6 +36,17 @@ body {
   margin-bottom: 2rem;
 }
 
+#header .user-icon img {
+  width: 1rem;
+  margin-right: 0.4rem;
+}
+
+#header a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
 #header #nav-bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,12 +61,6 @@ body {
   padding: 0.4rem 0.6rem;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-}
-
-#header #nav-bar li a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
 }
 
 #header #nav-bar .nav-items:hover {
@@ -394,9 +399,18 @@ body {
 }
 
 #view-more a {
+  color: #868686;
+  text-decoration: none;
   cursor: pointer;
-  margin-top: 15px;
   display: block;
+}
+
+#view-more a:hover {
+  color: black;
+}
+
+#view-more #arrow-down {
+  margin-top: 15px;
 }
 
 .center {

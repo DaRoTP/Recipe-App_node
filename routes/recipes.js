@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const middleware = require("../middleware");
 //models
 const Recipe = require("../models/recipe");
 
@@ -15,10 +15,10 @@ router.get("/", (req, res) =>{
     });  
 });
 //new
-router.get("/new", (req, res) =>{
+router.get("/new", middleware.isLoggedIn,  (req, res) =>{
     res.render("recipes/new");
 });
-router.post("/", (req, res) => {
+router.post("/", middleware.isLoggedIn, (req, res) => {
     let newRecipe = req.body.recipe;
     var author = {id: req.user._id, username: req.user.username};
     newRecipe.author = author;
@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
 });
 
 //edit
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", middleware.isLoggedIn, middleware.checkRecipeOwnership, (req, res) => {
     Recipe.findById(req.params.id, (err, foundRecipe) => {
         if(err){
             console.log(err);
@@ -41,7 +41,7 @@ router.get("/:id/edit", (req, res) => {
         }
     });
 });
-router.put("/:id", (req, res) => {
+router.put("/:id", middleware.isLoggedIn, middleware.checkRecipeOwnership, (req, res) => {
     Recipe.findByIdAndUpdate(req.params.id, req.body.recipe, (err, updatedRecipe) => {
         if(err){
             console.log(err);
@@ -65,7 +65,7 @@ router.get("/:id", (req, res) =>{
 
 
 //delete
-router.delete("/:id", (req, res) => {
+router.delete("/:id", middleware.isLoggedIn, middleware.checkRecipeOwnership, (req, res) => {
     Recipe.findByIdAndRemove(req.params.id, (err) => {
         if(err){
             res.redirect("/");

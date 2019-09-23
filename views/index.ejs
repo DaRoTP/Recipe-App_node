@@ -13,7 +13,9 @@
         </div>
         <% } %>
         <div class="card-container">
-            <% for(let i = recipes.length - 1; i >= 0; i--){ %>
+            <% let tentimes = 8 %>
+            <% for(let i = recipes.length - 1; i >= 0; i--){ 
+                if( tentimes != 0){%>
                 <a href="/recipes/<%= recipes[i]._id %>">
                 <div class="card">
                     <img class="card-image" src="<%= recipes[i].image %>" alt="">
@@ -33,16 +35,17 @@
                     </div>
                 </div>
                 </a>
+                <% tentimes = tentimes -1; } %>
             <% } %>
         </div>
         <!-- View more  -->
-        <a href="/recipes">
+        
         <div id="view-more">
             <div></div>
-            <button class="btn-primary">View more</button>
-            <img src="/images/arrow-down.svg" alt="">
+            <button class="btn-primary"><a href="/recipes">View more</a></button>
+            <a id="arrow-down" href="/recipes"><img src="/images/arrow-down.svg" alt=""></a>
         </div>
-        </a>
+        
 
 
     <% include ./partials/footer %>
