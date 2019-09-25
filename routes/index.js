@@ -10,7 +10,7 @@ const Recipe = require("../models/recipe"),
 router.get("/", (req, res) =>{
     Recipe.find({}, (err, foundRecipes) => {
         if(err){
-            console.log(err);
+            req.flash("error", err.message);
         } else{
             res.render("index", {recipes: foundRecipes});
         }
@@ -28,6 +28,7 @@ router.post("/login", passport.authenticate("local", {
 
 router.get("/logout", function(req, res){
     req.logout();
+    req.flash("success", "successfuly Loged out");
     res.redirect("/");
 });
 
@@ -35,10 +36,11 @@ router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username, name: req.body.name, email: req.body.email});
     User.register(newUser, req.body.password, function(err, createduser){
         if(err){
-            console.log(err);
+            req.flash("error", err.message);
             return res.redirect("/");
         }
         passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Welcome to Recipee!! "+user.username+" !");
             res.redirect("/");
         })
     });

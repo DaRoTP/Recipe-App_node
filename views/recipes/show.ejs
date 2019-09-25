@@ -19,7 +19,7 @@
             <form action="/recipes/<%= recipe._id %>?_method=delete" method="POST">
                 <button class="btn-delete" ><img src="/images/ant-design_delete-fill.svg" alt=""></button>
             </form>
-            <a class="btn-edit" href="/recipes/<%= recipe._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
+            <a href="/recipes/<%= recipe._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
         </div>
         <% } %>
         <div class="show-rating">

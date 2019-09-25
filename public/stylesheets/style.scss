@@ -347,6 +347,36 @@ body{
        margin-top: 15px;
    }
 }
+.container-center{
+    margin: auto 1rem;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 1rem;
+    width: 100%;
+    left: 0;
+
+}
+
+.alert{
+    border-radius: $border-radius;
+    text-align: center;
+    display: inline-block;
+    width: 40rem;
+    padding: 1rem;
+}
+
+.alert-success{
+    background: rgb(248, 229, 175);
+    color: rgb(151, 98, 28);
+    font-weight: bold;
+}
+
+.alert-warning{
+    background: rgb(248, 175, 175);
+    color: rgb(94, 24, 24);
+    font-weight: bold;
+}
 
 .center{
     display: flex;

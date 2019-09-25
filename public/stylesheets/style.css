@@ -436,6 +436,40 @@ body {
   margin-top: 15px;
 }
 
+.container-center {
+  margin: auto 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  top: 1rem;
+  width: 100%;
+  left: 0;
+}
+
+.alert {
+  border-radius: 29px;
+  text-align: center;
+  display: inline-block;
+  width: 40rem;
+  padding: 1rem;
+}
+
+.alert-success {
+  background: #f8e5af;
+  color: #97621c;
+  font-weight: bold;
+}
+
+.alert-warning {
+  background: #f8afaf;
+  color: #5e1818;
+  font-weight: bold;
+}
+
 .center {
   display: -webkit-box;
   display: -ms-flexbox;
