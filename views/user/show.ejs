@@ -2,44 +2,71 @@
 <% include ../partials/header %>
 
 <div class="user-grid">
-    
-    <section class="grey-box">
-        <form class="form-container" action="/user/<%= user.username %>?_method=PUT" method="POST">
-            <div class="input-container">
-                <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
-                <input type="text" name="dbUser[username]" id="" placeholder="Username" value="<%= user.username %>">
+    <section>
+            <% if(currentUser && currentUser.username == user.username){ %>
+                <h2 class="center-text">My Profile</h2>
+            <% } else{ %>
+                <h2 class="center-text"><%= user.username %>'s Profile</h2>
+            <% } %>
+        <div class="grey-box">
+            <% if(currentUser && currentUser.username == user.username){ %>
+            <form class="form-container" action="/user/<%= user.username %>?_method=PUT" method="POST">
+                <div class="input-container">
+                    <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
+                    <input type="text" name="dbUser[username]" id="" placeholder="Username" value="<%= user.username %>">
+                </div>
+                <div class="input-container">
+                    <span><img src="/images/si-glyph_badge-name.svg" alt=""></span>
+                    <input type="text" name="dbUser[name]" id="" placeholder="Name" value="<%= user.name %>">
+                </div>
+                <div class="input-container">
+                    <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
+                    <input type="text" name="dbUser[email]" id="" placeholder="E-Mail" value="<%= user.email %>">
+                </div>
+                <button class="btn-primary">Update</button>
+            </form>
+            <% } else{ %>
+            <div class="form-container">
+                <div class="p-container">
+                    <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>
+                    <p><%= user.username %></p>
+                </div>
+                <div class="p-container">
+                    <span><img src="/images/si-glyph_badge-name.svg" alt=""></span>
+                    <p><%= user.name %></p>
+                </div>
+                <div class="p-container">
+                    <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
+                    <p><%= user.email %></p>
+                </div>
             </div>
-            <div class="input-container">
-                <span><img src="/images/si-glyph_badge-name.svg" alt=""></span>
-                <input type="text" name="dbUser[name]" id="" placeholder="Name" value="<%= user.name %>">
-            </div>
-            <div class="input-container">
-                <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
-                <input type="text" name="dbUser[email]" id="" placeholder="E-Mail" value="<%= user.email %>">
-            </div>
-            <button class="btn-primary">Update</button>
-        </form>
+            <% } %>
+        </div>
     </section>
     <section>
     <h2 class="center-text">My posts</h2>
     <!-- Users Posts -->
     <div class="card-container">
         <% for(let i = posts.length - 1; i >= 0; i--){ %>
-        
-        <div class="card">
-            <img class="card-image" src="<%= posts[i].image %>" alt="">
-            <div class="card-controls">
-                <form action="/recipes/<%= posts[i]._id %>?_method=delete" method="POST">
-                    <button class="btn-delete" ><img src="/images/ant-design_delete-fill.svg" alt=""></button>
-                </form>
-                <a class="btn-edit" href="/recipes/<%= posts[i]._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
-            </div>
             <a href="/recipes/<%= posts[i]._id %>">
-            <div class="card-title">
-                <h2><%= posts[i].name %></h2>
-            </div>
-            </a>
-        </div>
+                <div class="card">
+                    <img class="card-image" src="<%= posts[i].image %>" alt="">
+                    <div class="time">
+                        <Strong><%= posts[i].price %></Strong>
+                        <span><img src="/images/fa-solid_money-bill-alt.svg" alt=""></span>
+                    </div>  
+                    <div class="card-rating">
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                        <span><img src="/images/Star.svg" alt=""></span>
+                    </div>
+                    <div class="card-title">
+                        <h2><%= posts[i].name %></h2>
+                    </div>
+                </div>
+                </a>
         <% } %>
     </div>
     </section>

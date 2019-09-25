@@ -2,6 +2,7 @@
 <div id="show-meal">
     <div class="flexboxx">
         <section class="temp">
+                <div id="user-index"><em>Submited by <span><%= recipe.author.username %></span></em></div>
         <div class="tags">
             <div class="time">
                 <Strong><%= recipe.time %></Strong>
@@ -30,7 +31,6 @@
         </div>
 
         <h1><%= recipe.name %></h1>
-        <div id="user-index"><em>Submited by <span><%= recipe.author.username %></span></em></div>
         </section>
     </div>
     <hr>

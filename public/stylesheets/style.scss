@@ -58,16 +58,14 @@ body{
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
-    .user-icon{
+    .nav-items{
         img{
             width: 1rem;
-            margin-right: 0.4rem;
         }
     }
     a{
         text-decoration: none;
         color: black;
-        font-size: 16px;
     }
 
     #nav-bar{
@@ -93,6 +91,21 @@ body{
     margin: auto 2rem;
     padding: 2rem 0;
 
+
+    .p-container{
+        background: $grey-3;
+        display: flex;
+        flex-direction: row;
+        margin: 1rem 0;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+        border-radius: $border-radius;
+        p{
+            margin-left: 0.5rem;
+        }
+    }
     .input-container{
         display: flex;
         flex-direction: row;
@@ -136,7 +149,7 @@ body{
 .side-nav{
     padding-top: 5rem;
     text-align: center;
-    height:90%;
+    height:30rem;
     width:0;
     position: absolute;;
     z-index:1;
@@ -393,6 +406,10 @@ body{
         display: flex;
         justify-content: center;
         text-align: center;
+        @include grid-1{
+            margin-right: 2rem;
+        }
+        
     }
     .temp{
         width: 18rem;
@@ -443,7 +460,8 @@ body{
     }
     #user-index{
     font-size: 0.8rem;
-    text-align: end;
+    text-align: start;
+        margin-bottom: 0.7rem;
     }
 }
 
@@ -548,12 +566,7 @@ form{
         @include grid-3{
             grid-template-columns: 1fr 1fr 1fr;
         }
-        a{
-            text-decoration: none;
-            color: black;
-            display: flex;
-            justify-content: center
-        }
+
     }
 }
   .center-text{
@@ -578,8 +591,11 @@ form{
 
       }
       .btn-delete{
-          background: $red;
-          color: white;
+            border-radius: $border-radius;
+            border-width: 0;
+            background: $red;
+            padding: 0.5rem 0.7rem;
+            color: white;
       }
   }
 
