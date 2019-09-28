@@ -53,8 +53,10 @@ router.put("/:id", middleware.isLoggedIn, middleware.checkRecipeOwnership, (req,
 
 
 //show
-router.get("/:id", (req, res) =>{
-    Recipe.findById(req.params.id, (err, foundRecipe) => {
+router.get("/:id", function(req, res){
+    Recipe.findById(req.params.id)
+    .populate("comments")
+    .exec(function(err, foundRecipe){
         if(err){
             console.log(err);
         } else{

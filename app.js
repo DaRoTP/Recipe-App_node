@@ -9,9 +9,10 @@ const express        = require('express'),
 
 
 //routes
-const indexRoutes   = require('./routes/index.js'),
-      userRoutes    = require('./routes/user.js'),
-      recipesRoutes = require('./routes/recipes.js');
+const indexRoutes    = require('./routes/index.js'),
+      userRoutes     = require('./routes/user.js'),
+      commentsRoutes = require('./routes/comments.js'),
+      recipesRoutes  = require('./routes/recipes.js');
 
 //models
 const User = require('./models/user');
@@ -29,6 +30,9 @@ app.use(express.static(__dirname+"/public"));
 app.use(methodOverride("_method"));
 //flash cards
 app.use(flash());
+
+//moments
+app.locals.moment = require('moment');
 
 //Connect to DB
 mongoose.connect("mongodb://localhost/RecipeAppDB", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -57,6 +61,7 @@ app.use(function(req, res, next){
 //Use Routes
 app.use("/user", userRoutes);
 app.use("/recipes",recipesRoutes);
+app.use("/recipes/:id/comments",commentsRoutes);
 app.use(indexRoutes);
 
 

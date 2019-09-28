@@ -40,7 +40,7 @@ router.post("/register", function(req, res){
             return res.redirect("/");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to Recipee!! "+user.username+" !");
+            req.flash("success", "Welcome to Recipee!! "+createduser.username+" !");
             res.redirect("/");
         })
     });

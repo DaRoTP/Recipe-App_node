@@ -1,5 +1,4 @@
-var mongoose = require("mongoose");
-var passportLocalMongoose = require("passport-local-mongoose");
+const mongoose = require("mongoose");
 
 var RecipeSchema = new mongoose.Schema({
     name: String,
@@ -12,7 +11,13 @@ var RecipeSchema = new mongoose.Schema({
     author: {
         id: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
         username: String
-     }
+     },
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
+    ]
 });
 
 module.exports = mongoose.model("Recipe", RecipeSchema);

@@ -43,6 +43,29 @@
         <p id="recipe-content"><%= recipe.method %></p>
     </div>
 </div>
+<hr>
+<h3>Comment Section</h3>
+<section id="comment-section">
+    <form id="comment-area" action="/recipes/<%= recipe._id %>/comments/" method="POST">
+        <textarea name="comment[text]" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+    <% for(let i = 0; i < recipe.comments.length; i++){%>
+    <div class="comment-container">
+        <img src="/images/fa-solid_user-alt.svg" alt="">
+        <div class="comment">
+            <div>
+                <strong><%= recipe.comments[i].author.username %>: </strong>
+                <span><%= recipe.comments[i].text %></span>
+            </div>
+            <span class="date-posted"><%= moment(recipe.comments.createdAt).fromNow() %></span>
+            <form class="/recipes/<%= recipe._id %>/comments/<%= recipe.comments[i]._id%>" action="POST">
+                <button><img src="/images/ant-design_delete-fill.svg" alt=""></button>
+            </form>
+        </div>
+    </div>
+    <% } %>
+</section>
 
 
 <% include ../partials/footer %>
