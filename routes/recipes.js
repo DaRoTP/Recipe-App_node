@@ -6,13 +6,17 @@ const Recipe = require("../models/recipe");
 
 
 router.get("/", (req, res) =>{
-    Recipe.find({}, (err, foundRecipes) => {
-        if(err){
-            console.log(err);
-        } else{
-            res.render("recipes/recipes", {recipes: foundRecipes});
-        }
-    });  
+    let regex = new RegExp('.');
+    if(req.query.search){
+        regex = new RegExp(escapeRegExp(req.query.search), 'gi');
+    }
+        Recipe.find({name: regex}, (err, foundRecipes) => {
+            if(err){
+                console.log(err);
+            } else{
+                res.render("recipes/recipes", {recipes: foundRecipes});
+            }
+        });  
 });
 //new
 router.get("/new", middleware.isLoggedIn,  (req, res) =>{
@@ -76,5 +80,11 @@ router.delete("/:id", middleware.isLoggedIn, middleware.checkRecipeOwnership, (r
         }
     });
 });
+
+
+//escape regex
+function escapeRegExp(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  }
 
 module.exports = router;
