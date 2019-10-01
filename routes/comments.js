@@ -20,7 +20,6 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
                     comment.save();
                     foundPost.comments.push(comment);
                     foundPost.save();
-                    req.flash("success", "Successfuly added a comment");
                     res.redirect("/recipes/"+foundPost._id);
                 }
             });
@@ -30,37 +29,17 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
 
 
 
-// router.get("/:comments_id/edit", middleware.checkCommentOwnership, function(req, res){
-//     Comment.findById(req.params.comments_id, function(err, foundcomment){
-//         if(err){
-//             res.redirect("back");
-//         } else{
-//             res.render("comments/edit", {campground_id: req.params.id, comment: foundcomment});
-//         }
-//     });
-// });
 
-// router.put("/:comments_id", middleware.checkCommentOwnership, function(req, res){
-//     Comment.findByIdAndUpdate(req.params.comments_id, req.body.comment, function(err, foundcomment){
-//         if(err){
-//             res.redirect("back");
-//         } else{
-//             res.redirect("/campgrounds/"+req.params.id);
-//         }
-//     });
-// });
-
-// router.delete("/:comments_id", middleware.checkCommentOwnership, function(req, res){
-//     Comment.findByIdAndRemove(req.params.comments_id, function(err, foundcomment){
-//         if(err){
-//             res.redirect("back");
-//         } else{
-//             req.flash("success", "Comment deleted");
-//             res.redirect("/campgrounds/"+req.params.id);
-//         }
-//     });
-// });
-
+router.delete("/:comments_id", middleware.checkCommentOwnership, (req, res) => {
+    Comment.findByIdAndRemove(req.params.comments_id, (err, foundcomment) => {
+        if(err){
+            res.redirect("back");
+        } else{
+            req.flash("success", "Comment deleted");
+            res.redirect("/recipes/"+req.params.id);
+        }
+    });
+});
 
 
 

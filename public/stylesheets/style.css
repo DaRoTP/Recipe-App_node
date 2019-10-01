@@ -704,6 +704,32 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 0.2rem 1rem;
+  margin: 1rem -1.5rem -2rem -1.5rem;
+  border-radius: 0 0 29px 29px;
+  background: #e7e7e7;
+}
+
+@media (min-width: 760px) {
+  #comment-section {
+    padding: 0.6rem 3rem;
+  }
+}
+
+@media (min-width: 1063px) {
+  #comment-section {
+    padding: 1rem 9rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  #comment-section {
+    padding: 2rem 16rem;
+  }
+}
+
+#comment-section h3 {
+  text-align: center;
 }
 
 #comment-section #comment-area {
@@ -717,6 +743,14 @@ body {
   margin-bottom: 4rem;
 }
 
+#comment-section #comment-area textarea {
+  height: 4rem;
+  outline: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  resize: none;
+}
+
 #comment-section .comment-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -728,13 +762,47 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 1rem 0;
 }
 
 #comment-section .comment-container .comment {
   background: #C4C4C4;
   padding: 1rem;
-  width: 60%;
+  text-align: start;
   border-radius: 29px;
+}
+
+#comment-section .comment-container .comment .temp-name {
+  padding-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#comment-section .comment-container .comment .temp-name .delete-btn {
+  cursor: pointer;
+  background: transparent;
+  border-width: 0;
+}
+
+#comment-section .comment-container .comment .temp-name .delete-btn > img {
+  height: 1.3rem;
+}
+
+#comment-section .comment-container .user-avatar {
+  background: black;
+  border-radius: 50px;
+  padding: 0;
+  width: 2rem;
+  margin-right: 0.5rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .box {
