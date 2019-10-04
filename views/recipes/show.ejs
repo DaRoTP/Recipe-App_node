@@ -22,14 +22,45 @@
             <a href="/recipes/<%= recipe._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
         </div>
         <% } %>
-        <div class="show-rating">
-            <span><img src="/images/Star.svg" alt=""></span>
-            <span><img src="/images/Star.svg" alt=""></span>
-            <span><img src="/images/Star.svg" alt=""></span>
-            <span><img src="/images/Star.svg" alt=""></span>
-            <span><img src="/images/Star.svg" alt=""></span>
-        </div>
-
+        <form class="show-rating" method="POST" action="/recipes/<%= recipe._id %>/rating?_method=PUT">
+                <div class="rating">
+                <label>
+                  <input type="radio" name="stars" value="1" <% if(recipe.rating == 1){ %> checked <% } %>/>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="2" <% if(recipe.rating == 2){ %> checked <% } %>/>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="3" <% if(recipe.rating == 3){ %> checked <% } %>/>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>   
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="4" <% if(recipe.rating == 4){ %> checked <% } %>/>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="5" <% if(recipe.rating == 5){ %> checked <% } %>/>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                </div>
+                <% if(currentUser && recipe.userRatings.indexOf(currentUser._id) <= -1){%>
+                <button class="btn-primary">Submit</button>
+                <% }else if(currentUser){ %> 
+                    <div>Rated</div>
+              <%  } %>
+              </form>
         <h1><%= recipe.name %></h1>
         </section>
     </div>
@@ -61,7 +92,7 @@
                 <span><%= recipe.comments[i].text %></span>
             </div>
             <div class="temp-name">
-                <span class="date-posted"><%= moment(recipe.comments.createdAt).fromNow() %></span>
+                <span class="date-posted"><%= moment(recipe.comments[i].createdAt).fromNow() %></span>
                 <% if(currentUser && currentUser.username === recipe.comments[i].author.username){ %>
                 <form action="/recipes/<%= recipe._id %>/comments/<%= recipe.comments[i]._id %>?_method=delete" method="POST">
                     <button class="delete-btn"><img src="/images/ant-design_delete-fill.svg" alt=""></button>

@@ -17,6 +17,12 @@ var RecipeSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
         }
+    ],
+    userRatings: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
     ]
 });
 

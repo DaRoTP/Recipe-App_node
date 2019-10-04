@@ -81,6 +81,30 @@ router.delete("/:id", middleware.isLoggedIn, middleware.checkRecipeOwnership, (r
     });
 });
 
+//rating
+router.put("/:id/rating", (req, res) => {
+    Recipe.findById(req.params.id, (err, foundRecipe) => {
+        if(err){
+            console.log(err);
+        } else{
+            let tempRating = foundRecipe.rating;
+            tempRating = Math.round((tempRating + Number(req.body.stars)) / 2);
+            foundRecipe.rating = tempRating;
+                        // console.log(req.user);
+
+            foundRecipe.userRatings.push(req.user);
+            foundRecipe.save((err) => {
+                if(err){
+                    console.log(err);
+                } else{
+                    res.redirect("/recipes/"+req.params.id);
+                }
+            });
+        }
+    });
+    
+});
+
 
 //escape regex
 function escapeRegExp(text) {

@@ -17,23 +17,18 @@
             <% for(let i = recipes.length - 1; i >= 0; i--){ 
                 if( tentimes != 0){%>
                 <a href="/recipes/<%= recipes[i]._id %>">
-                <div class="card">
-                    <img class="card-image" src="<%= recipes[i].image %>" alt="">
-                    <div class="time">
-                        <Strong><%= recipes[i].price %></Strong>
-                        <span><img src="/images/fa-solid_money-bill-alt.svg" alt=""></span>
-                    </div>  
-                    <div class="card-rating">
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
+                    <div class="card">
+                        <img class="card-image" src="<%= recipes[i].image %>" alt="">
+                        <div class="time">
+                            <Strong><%= recipes[i].rating %>/5</Strong>
+                            <span><img src="/images/star.svg" alt=""></span>
+                        </div> 
+                    
+    
+                        <div class="card-title">
+                            <h2><%= recipes[i].name %></h2>
+                        </div>
                     </div>
-                    <div class="card-title">
-                        <h2><%= recipes[i].name %></h2>
-                    </div>
-                </div>
                 </a>
                 <% tentimes = tentimes -1; } %>
             <% } %>
