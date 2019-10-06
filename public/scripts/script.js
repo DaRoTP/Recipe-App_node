@@ -9,3 +9,4 @@ function openSlideMenu(number){
 function closeSlideMenu(number){
     document.getElementsByClassName('side-nav')[number].style.width = '0';
 }
+

@@ -51,22 +51,15 @@
             <a href="/recipes/<%= posts[i]._id %>">
                 <div class="card">
                     <img class="card-image" src="<%= posts[i].image %>" alt="">
-                    <div class="time">
-                        <Strong><%= posts[i].price %></Strong>
-                        <span><img src="/images/fa-solid_money-bill-alt.svg" alt=""></span>
-                    </div>  
                     <div class="card-rating">
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                        <span><img src="/images/Star.svg" alt=""></span>
-                    </div>
+                        <Strong><%= posts[i].rating %>/5</Strong>
+                        <span>★</span>
+                    </div> 
                     <div class="card-title">
                         <h2><%= posts[i].name %></h2>
                     </div>
                 </div>
-                </a>
+            </a>
         <% } %>
     </div>
     </section>

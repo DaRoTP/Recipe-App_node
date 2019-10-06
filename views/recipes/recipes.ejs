@@ -8,7 +8,7 @@
         </div>
         <!-- Cards -->
         <% if(currentUser){ %>
-        <div class="center">
+        <div class="container-center margin-y text-bold">
             <a href="/recipes/new" class="btn-primary">Add new <img src="/images//plus.svg" alt=""></a>
         </div>
         <% } %>
@@ -17,12 +17,10 @@
                 <a href="/recipes/<%= recipes[i]._id %>">
                 <div class="card">
                     <img class="card-image" src="<%= recipes[i].image %>" alt="">
-                    <div class="time">
+                    <div class="card-rating">
                         <Strong><%= recipes[i].rating %>/5</Strong>
-                        <span><img src="/images/star.svg" alt=""></span>
+                        <span>★</span>
                     </div> 
-                
-
                     <div class="card-title">
                         <h2><%= recipes[i].name %></h2>
                     </div>

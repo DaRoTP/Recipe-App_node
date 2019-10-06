@@ -27,9 +27,7 @@
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(1)">Sing Up</a></li>
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(0)">Log In</a></li>
                 <% }else { %>
-                <a class="user-icon" href="/user/<%= currentUser.username %>">
-                    <li class="nav-items"><img src="/images/fa-solid_user-alt.svg" alt=""><%= currentUser.username %></li>
-                </a>
+                <li class="nav-items"><a href="/user/<%= currentUser.username %>"><img src="/images/fa-solid_user-alt.svg" alt=""><%= currentUser.username %></a></li>
                 <li class="nav-items"><a href="/logout" ><img src="/images/ls-logout.svg" alt=""></a></li>
                 <% } %>
             </div>
@@ -73,14 +71,14 @@
                 </form>
             </div>
         </header>
-        <div class="container-center">
-        <% if(error && error.length > 0){ %>
-        <div class="alert alert-warning">
-            <%= error %>
+        <div class="alert-container">
+            <% if(error && error.length > 0){ %>
+            <div class="alert alert-warning">
+                <%= error %>
+            </div>
+            <% }if(success && success.length > 0){ %>
+            <div class="alert alert-success">
+                <%= success %>
+            </div>
+            <% } %>
         </div>
-        <% }if(success && success.length > 0){ %>
-        <div class="alert alert-success">
-            <%= success %>
-        </div>
-        <% } %>
-    </div>

@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 <div id="show-meal">
-    <div class="flexboxx">
+    <section class="post-face">
         <section class="temp">
                 <div id="user-index"><em>Submited by <span><%= recipe.author.username %></span></em></div>
         <div class="tags">
@@ -19,7 +19,7 @@
             <form action="/recipes/<%= recipe._id %>?_method=delete" method="POST">
                 <button class="btn-delete" ><img src="/images/ant-design_delete-fill.svg" alt=""></button>
             </form>
-            <a href="/recipes/<%= recipe._id %>/edit"><img src="/images/dashicons-edit-large.svg" alt=""></a>
+            <a href="/recipes/<%= recipe._id %>/edit"><img class="local-img" src="/images/dashicons-edit-large.svg" alt=""></a>
         </div>
         <% } %>
         <form class="show-rating" method="POST" action="/recipes/<%= recipe._id %>/rating?_method=PUT">
@@ -58,21 +58,21 @@
                 <% if(currentUser && recipe.userRatings.indexOf(currentUser._id) <= -1){%>
                 <button class="btn-primary">Submit</button>
                 <% }else if(currentUser){ %> 
-                    <div>Rated</div>
+                    <div>Rated ✔</div>
               <%  } %>
               </form>
         <h1><%= recipe.name %></h1>
         </section>
-    </div>
+    </section>
     <hr>
-    <div class="text-content">
+    <section class="post-content">
         <h2>Ingredients</h2>
         <p id="ingredients-content"><%= recipe.ingredients %></p>
-    </div>
-    <div class="text-content">
+    </section>
+    <section class="post-content">
         <h2>Method</h2>
         <p id="recipe-content"><%= recipe.method %></p>
-    </div>
+    </section>
 </div>
 
 <section id="comment-section">

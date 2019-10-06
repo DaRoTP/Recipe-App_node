@@ -32,7 +32,7 @@ router.put("/:username", (req, res) => {
             console.log(err);
             red.redirect("/");
         } else{
-            res.redirect("/user/"+req.params.username);
+            res.redirect("/");
         }
     });
 });

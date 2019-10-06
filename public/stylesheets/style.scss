@@ -1,12 +1,10 @@
 
-$grey-seccondary: rgb(223, 223, 223);
-$lighter-grey: #F6F6F6;
-$darker-grey: #868686;
 
 $main-color: #FBD35F;
 $grey-1: #868686;
 $grey-2: #C4C4C4;
 $grey-3: rgb(231, 231, 231);
+$grey-4: #F6F6F6;
 $navy: #313131;
 $orange: #FF8B36;
 $red: #FB5F5F;
@@ -38,193 +36,7 @@ html, body{
 body{
     background: $main-color;
 }
-
-#logo-container{
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-        img{
-            width: 25px;
-            margin-bottom: -3px;
-        }
-    strong{
-        font-size: 18px;
-        letter-spacing: 1px;
-        margin-bottom: 1rem;
-    }
-}
-
-#header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 2rem;
-    .nav-items{
-        img{
-            width: 1rem;
-        }
-    }
-    a{
-        text-decoration: none;
-        color: black;
-    }
-
-    #nav-bar{
-        display: flex;
-        align-items: flex-end;
-        list-style: none;
-        li{
-            padding: 0.4rem 0.6rem;
-            transition: all 0.2s;
-
-        }
-        .nav-items:hover{
-            background: $grey-seccondary;
-            color: $darker-grey;
-            border-radius: $border-radius;
-        }
-    }
-}
-
-.form-container{
-    display: flex;
-    flex-direction: column;
-    margin: auto 2rem;
-    padding: 2rem 0;
-
-
-    .p-container{
-        background: $grey-3;
-        display: flex;
-        flex-direction: row;
-        margin: 1rem 0;
-        justify-content: flex-start;
-        align-items: center;
-        padding-left: 0.7rem;
-        padding-right: 0.7rem;
-        border-radius: $border-radius;
-        p{
-            margin-left: 0.5rem;
-        }
-    }
-    .input-container{
-        display: flex;
-        flex-direction: row;
-        margin: 1rem 0;
-        justify-content: space-between;
-    }
-    input{
-        margin-left: 0.5rem;
-        flex-grow: 1;
-        border-width: 0;
-        outline: none;
-        font-size: 18px;
-        border-bottom: #868686 2px solid;
-        margin-left: 1rem;
-        background: transparent;
-        font-style: italic; 
-    }
-
-}
-
-.btn-primary{
-    margin-top: 2rem;
-    text-transform: uppercase;
-    padding: 0.3rem 1rem;
-    border-radius: $border-radius;
-    border: solid 1px $darker-grey;
-    color: $darker-grey;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-    &:hover{
-        background: $main-color;
-        border-color: $main-color;
-        color: $navy;
-        font-weight: bold;
-        box-shadow: 0px 0px 4px 0px $main-color;
-    }
-}
-
-.side-nav{
-    padding-top: 5rem;
-    text-align: center;
-    height:30rem;
-    width:0;
-    position: absolute;;
-    z-index:1;
-    top: 6rem;
-    right: 1rem;
-    border-radius: $border-radius 0 0 $border-radius;
-    background-color:$lighter-grey;
-    overflow-x:hidden;
-    transition:0.5s;
-    @include grid-1{
-        right: 3rem;
-        top: 8rem;
-    }
-    @include grid-2{
-        right: 4rem;
-        top: 9rem;
-    }
-    @include grid-3{
-        right: 7rem;
-        top: 12rem;
-    }
-    a{
-        padding:10px 10px 10px 30px;
-        text-decoration:none;
-        font-size:22px;
-        color: black;
-        display:block;
-        transition:0.3s;
-        &:hover{
-            color:rgb(43, 43, 43);
-          }
-      }
-    .btn-close{
-        position:absolute;
-        top:0;
-        right:22px;
-        font-size:36px;
-        margin-left:50px;
-    }
-  }
-
-
-  
-#search-box{
-    border-radius: $border-radius;
-    margin: 1rem auto;
-    background: $grey-seccondary;
-
-    @include grid-1{
-        width: 50%;
-    }
-    input{
-        display: inline-block;
-        border: solid 0 transparent;
-        background: transparent;
-        margin: 0.1rem auto 0.1rem 0.8rem;
-        height: 2rem;
-        width: 80%;
-        font-size: 18px;
-        outline: none;
-    }
-    button{
-        background: transparent;
-        border: solid 0 transparent;
-        border-radius: $border-radius;
-        float: right;
-        outline: none;
-        cursor: pointer;
-        img{
-            width: 34px;  
-        }
-    }
-}
-
-
+//CONTAINERS
 .main-container{
     background: #FFF;
     margin: 1rem;
@@ -243,7 +55,11 @@ body{
         margin: 7rem;
     }
 }
-
+.container-center{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
 .card-container{
     display: grid;
     grid-template-columns: 1fr;
@@ -265,6 +81,226 @@ body{
         justify-content: center
     }
 }
+
+.p-container{
+    background: $grey-3;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: $border-radius;
+    p{
+        margin-left: 0.5rem;
+    }
+}
+//HEADER
+#header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    #nav-bar{
+        display: flex;
+        align-items: flex-end;
+        list-style: none;   
+    }
+    .nav-items{
+        padding: 0.4rem 0.6rem;
+        img{
+            width: 1rem;
+            margin-right: 0.5rem;
+        }
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.side-nav{
+    padding-top: 5rem;
+    text-align: center;
+    height:30rem;
+    width:0;
+    position: absolute;;
+    z-index:1;
+    top: 6rem;
+    right: 1rem;
+    border-radius: $border-radius 0 0 $border-radius;
+    background-color:$grey-4;
+    overflow-x:hidden;
+    transition:0.5s;
+    @include grid-1{
+        right: 3rem;
+        top: 8rem;
+    }
+    @include grid-2{
+        right: 4rem;
+        top: 9rem;
+    }
+    @include grid-3{
+        right: 7rem;
+        top: 12rem;
+    }
+    a{
+        padding:10px 10px 10px 30px;
+        text-decoration:none;
+        font-size:22px;
+        color: black;
+        display:block;
+        transition:0.3s;
+      }
+      button{
+          margin-top: 2rem;
+      }
+    .btn-close{
+        position:absolute;
+        top:0;
+        right:22px;
+        font-size:36px;
+        margin-left:50px;
+    }
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto 2rem;
+    padding: 2rem 0;
+    .input-container{
+        display: flex;
+        flex-direction: row;
+        margin: 1rem 0;
+        justify-content: space-between;
+        input{  
+            margin-left: 0.5rem;
+            flex-grow: 1;
+            border-width: 0;
+            outline: none;
+            font-size: 18px;
+            border-bottom: #868686 2px solid;
+            margin-left: 1rem;
+            background: transparent;
+            font-style: italic; 
+        }
+    }  
+}
+
+
+//BUTTONS
+.btn-primary{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: $border-radius;
+    border: solid 1px $grey-1;
+    color: $grey-1;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+    &:hover{
+        background: $main-color;
+        border-color: $main-color;
+        color: $navy;
+        font-weight: bold;
+        box-shadow: 0px 0px 4px 0px $main-color;
+    }
+    img{
+        margin: 0.1rem 0 -0.2rem 0.3rem;
+    }
+}
+.text-bold{
+    font-weight: bold;
+}
+.margin-y{
+    margin: 1rem 0;
+}
+.margin-x{
+    margin: 0 1rem;
+}
+// ALERT
+.alert-container{
+    margin: auto 1rem;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: -4rem;
+    width: 100%;
+    left: 0;
+    animation: alertAnimation 5s ease-in-out;
+}
+@keyframes alertAnimation{
+    0%   { top: -4rem; }
+    10% { top: 1rem; }
+    90% { top: 1rem; }
+    100% { top: -4rem; }
+}
+.alert{
+    border-radius: $border-radius;
+    text-align: center;
+    display: inline-block;
+    width: 40rem;
+    padding: 1rem;
+}
+.alert-success{
+    background: rgb(248, 229, 175);
+    color: rgb(151, 98, 28);
+    font-weight: bold;
+}
+.alert-warning{
+    background: rgb(248, 175, 175);
+    color: rgb(94, 24, 24);
+    font-weight: bold;
+}
+
+#logo-container{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+        img{
+            width: 25px;
+            margin-bottom: -3px;
+        }
+    strong{
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+    }
+}
+//SEARCH BOX
+#search-box{
+    border-radius: $border-radius;
+    margin: 1rem auto;
+    background: $grey-3;
+    @include grid-1{
+        width: 50%;
+    }
+    input{
+        display: inline-block;
+        border: solid 0 transparent;
+        background: transparent;
+        margin: 0.1rem auto 0.1rem 0.8rem;
+        height: 2rem;
+        width: 80%;
+        font-size: 1.15rem;
+        outline: none;
+    }
+    button{
+        background: transparent;
+        border: solid 0 transparent;
+        border-radius: $border-radius;
+        float: right;
+        outline: none;
+        cursor: pointer;
+        img{
+            width: 2rem;  
+        }
+    }
+}
+//POST CARD
 .card{
     background: $grey-3;
     margin: 1rem;
@@ -280,7 +316,7 @@ body{
         width: 100%;
         object-fit: cover;
     }
-    .time{
+    .card-rating{
         text-decoration: none;
         box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
         margin-top: -200px;
@@ -295,15 +331,11 @@ body{
             margin: 0.25rem 0.5rem;;
             font-size: 0.8rem;
         }
-        img{
-            margin-bottom: -0.35rem;
-            width: 1.2rem;
+        span{
+            height: 1rem;
+            font-size: 1.3rem;
+            margin: -0.3rem 0.1rem 0 -0.2rem;
         }
-    }
-    .card-rating{
-        position: relative;
-        text-align: center;
-        
     }
     .card-title{
         display: flex;
@@ -319,6 +351,7 @@ body{
         }
     }
 }
+// VIEW MORE
 #view-more{
     text-align: center;
    div{
@@ -326,13 +359,16 @@ body{
        height: 6px;
        width: 80%;
        border-radius: $border-radius;
-       background: $grey-seccondary;
+       background: $grey-3;
        @include grid-1{
         width: 50%;
         }
-    @include grid-2{
-        width: 30%;
-        }
+        @include grid-2{
+            width: 30%;
+            }
+   }
+   button{
+       margin-top: 1.6rem;
    }
    a{
        color: $grey-1;
@@ -347,99 +383,123 @@ body{
        margin-top: 15px;
    }
 }
-.container-center{
-    margin: auto 1rem;
+//PAGE NOT FOUND
+.page-notfound{
     display: flex;
-    justify-content: center;
-    position: fixed;
-    top: -4rem;
-    width: 100%;
-    left: 0;
-    animation: alertAnimation 5s ease-in-out;
-}
-
-.alert{
-    border-radius: $border-radius;
-    text-align: center;
-    display: inline-block;
-    width: 40rem;
-    padding: 1rem;
-}
-
-@keyframes alertAnimation{
-    0%   { top: -4rem; }
-    10% { top: 1rem; }
-    90% { top: 1rem; }
-    100% { top: -4rem; }
-}
-
-.alert-success{
-    background: rgb(248, 229, 175);
-    color: rgb(151, 98, 28);
-    font-weight: bold;
-}
-
-.alert-warning{
-    background: rgb(248, 175, 175);
-    color: rgb(94, 24, 24);
-    font-weight: bold;
-}
-
-.center{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    a{
-        text-decoration: none;
-        padding: 0.4rem 1rem;
-        text-align: center;
-        font-weight: bold;
-        img{
-            margin-left: 0.3rem;
-            margin-bottom: -0.1rem;
+    justify-content: space-around;
+    img{
+        height: 15rem;
+        @include grid-1{
+            height: 20rem;
         }
     }
 }
 
-.page-notfound{
+//EDIT NEW RECIPE 
+.form-box{
+    height: 100%;
+    background: #FFF;
+    border-radius: $border-radius;
+    padding: 2rem 1.5rem;
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+
+form{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin-right: 27px;
+    @include grid-1{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    img{
+        width: 27px;
+    }
+    .input-container{
+        display: flex;
+        flex-direction: row;
+        margin: 1rem;
+        justify-content: space-between;
+    }
+        input{
+            margin-left: 0.5rem;
+            flex-grow: 1;
+            border-width: 0;
+            outline: none;
+            font-size: 18px;
+            border-bottom: #868686 2px solid;
+            margin-left: 1rem;
+            background: transparent;
+            font-style: italic;
+            
+        }
+        textarea{
+            background: transparent;
+            font-family: inherit; 
+            font-size: inherit;
+            border-radius: 4px;
+            margin-left: 1rem;
+            width: 100%;
+            border-width: 2px;
+            resize: none;
+            outline: none;
+        }
+        button{
+            margin-left: 3rem;
+            margin-right: 0.5rem;
+            @include grid-1{
+                grid-column:1/3;
+            }
+        }
+    }
 }
 
+
+
 #show-meal{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
 
     @include grid-1{
         padding-left: 2rem;
         padding-right: 2rem;
-        flex-direction: row;
+        grid-template-columns: 1fr 1fr;
+
     }
     @include grid-2{
         padding-left: 3rem;
         padding-right: 3rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0 1rem;
     }
     @include grid-3{
         padding-left: 7rem;
         padding-right: 7rem;
     }
-    .text-content{
-        max-width: 24rem;
+    .post-content{
+        
         text-align: center;
         align-self: center;
-        margin: 0 1rem;
+        max-width: 24rem;
         @include grid-1{
+            margin-top: 1.5rem;
             align-self: flex-start;
+            grid-column:2/3;
+            width: 100%;
         }
         @include grid-2{
-            margin: 0 1.5rem;
+            margin: 1.4rem 1.5rem auto 1.5rem;;
+            width: auto;
+            grid-column: auto;
         }
         @include grid-3{
             margin: 0 2.5rem;
         }
     }
-    .flexboxx{
+    .post-face{
         display: flex;
         justify-content: center;
         text-align: center;
@@ -489,7 +549,7 @@ body{
         flex-grow: 1;
     }
     hr{
-        border: solid 1px $grey-seccondary;
+        border: solid 1px $grey-3;
         border-radius: $border-radius;
         @include grid-1{
             display: none;
@@ -501,7 +561,88 @@ body{
         margin-bottom: 0.7rem;
     }
 }
+//COMMENT SECTION
+#comment-section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.2rem 1rem;
+    margin: 1rem -1.5rem -2rem -1.5rem;
+    border-radius: 0 0 $border-radius $border-radius;
+    background: $grey-3;
+    @include grid-1{
+        padding: 0.6rem 3rem;
+    }
+    @include grid-2{
+        padding: 1rem 9rem;
+    }
+    @include grid-3{
+        padding: 2rem 16rem;
+    }
+    h3{
+        text-align: center;
+    }
+    button{
+        margin-top: 2rem;
+    }
 
+    #comment-area{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 4rem;
+        textarea{
+            height: 4rem;
+            outline: none;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            resize: none;
+        }
+    }
+
+    .comment-container{
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 1rem 0;
+        .comment{
+            background: $grey-2;
+            padding: 1rem;
+            text-align: start;
+            border-radius: $border-radius;
+            .temp-name{
+                padding-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+                form{
+                    height: 20px;
+                }
+                .delete-btn{
+                    margin-top: -20px;
+                    cursor: pointer;
+                    background: transparent;
+                    border-width: 0;
+                }
+                .delete-btn>img{
+                    height: 1.3rem;
+                }
+                .date-posted{
+                    font-size: 0.7rem;
+                }
+            }
+        }
+        .user-avatar{
+            background: black;
+            border-radius: 50px;
+            padding: 0;
+            width: 2rem;
+            margin-right: 0.5rem;
+            align-self: flex-start
+        }
+    }
+}
+
+//rating
 .rating {
     display: inline-block;
     position: relative;
@@ -575,157 +716,10 @@ body{
     color: $navy;
     text-shadow: 0 0 5px goldenrod;
   }
-#comment-section{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0.2rem 1rem;
-    margin: 1rem -1.5rem -2rem -1.5rem;
-    border-radius: 0 0 $border-radius $border-radius;
-    background: $grey-3;
-    @include grid-1{
-        padding: 0.6rem 3rem;
-    }
-    @include grid-2{
-        padding: 1rem 9rem;
-    }
-    @include grid-3{
-        padding: 2rem 16rem;
-    }
-    h3{
-        text-align: center;
-    }
 
-
-    #comment-area{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 4rem;
-        textarea{
-            height: 4rem;
-            outline: none;
-            border-radius: 10px;
-            padding: 0.5rem 1rem;
-            resize: none;
-        }
-    }
-
-    .comment-container{
-        justify-content: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        margin: 1rem 0;
-        .comment{
-            background: $grey-2;
-            padding: 1rem;
-            text-align: start;
-            border-radius: $border-radius;
-            .temp-name{
-                padding-top: 1rem;
-                display: flex;
-                justify-content: space-between;
-                .delete-btn{
-                    cursor: pointer;
-                    background: transparent;
-                    border-width: 0;
-                }
-                .delete-btn>img{
-                    height: 1.3rem;
-                }
-
-            }
-        }
-        .user-avatar{
-            background: black;
-            border-radius: 50px;
-            padding: 0;
-            width: 2rem;
-            margin-right: 0.5rem;
-            align-self: flex-start
-        }
-    }
-}
-
-.box{
-    height: 100%;
-    background: #FFF;
-    border-radius: $border-radius;
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-form{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: center;
-    margin-right: 27px;
-    @include grid-1{
-        grid-template-columns: 1fr 1fr;
-    }
-
-    img{
-        width: 27px;
-    }
-    .input-container{
-        display: flex;
-        flex-direction: row;
-        margin: 1rem;
-        justify-content: space-between;
-    }
-        input{
-            margin-left: 0.5rem;
-            flex-grow: 1;
-            border-width: 0;
-            outline: none;
-            font-size: 18px;
-            border-bottom: #868686 2px solid;
-            margin-left: 1rem;
-            background: transparent;
-            font-style: italic;
-            
-        }
-        textarea{
-            background: transparent;
-            font-family: Arial, Helvetica, sans-serif;
-            border-radius: 4px;
-            font-style: italic;
-            margin-left: 1rem;
-            width: 100%;
-            border-width: 2px;
-            resize: none;
-            outline: none;
-        }
-        button{
-            margin-left: 3rem;
-            margin-right: 0.5rem;
-            grid-column:1/3;
-        }
-    }
-}
-
-  .card-controls{
-      margin: -3.6rem 1rem 1rem 1rem;
-      display: flex;
-      justify-content: space-between;
-
-      span{
-          background: $main-color;
-          border-radius: 10px;
-          padding-top: 5px;
-      }
-      span:nth-child(1){
-          background: rgb(204, 47, 47);
-      }
-      .btn-control{
-        padding: 0.2rem 0.4rem;
-        cursor: pointer;
-    }
-  }
 
   .grey-box{
-    background: $lighter-grey;
+    background: $grey-4;
     border-radius: 10px;
     text-align: center;;
   }
@@ -775,9 +769,11 @@ form{
       .btn-delete{
             border-radius: $border-radius;
             border-width: 0;
+            box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
             background: $red;
             padding: 0.5rem 0.7rem;
             color: white;
+            cursor: pointer;
       }
   }
 
