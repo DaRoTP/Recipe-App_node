@@ -1,4 +1,5 @@
-const express = require('express');
+const express = require('express'),
+      mongoose = require('mongoose');
 const router = express.Router();
 const middleware = require("../middleware");
 //models
@@ -58,13 +59,19 @@ router.put("/:id", middleware.isLoggedIn, middleware.checkRecipeOwnership, (req,
 
 //show
 router.get("/:id", function(req, res){
-    Recipe.findById(req.params.id)
+    let findId = mongoose.Types.ObjectId(req.params.id);
+    Recipe.findById(findId)
     .populate("comments")
     .exec(function(err, foundRecipe){
         if(err){
             console.log(err);
         } else{
-            res.render("recipes/show", { recipe: foundRecipe });
+            if(foundRecipe){
+                res.render("recipes/show", { recipe: foundRecipe });
+            } else{
+                req.flash("error", "Recipe not found");
+                res.redirect("/");
+            }
         }
     });
 });

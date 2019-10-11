@@ -14,7 +14,7 @@
             </div>
         </div>
         <img class="show-image" src="<%= recipe.image %>" alt="">
-        <% if(currentUser && recipe.author.id.equals(currentUser._id)){ %>
+        <% if(currentUser && recipe.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
         <div class="recipe-controls">
             <form action="/recipes/<%= recipe._id %>?_method=delete" method="POST">
                 <button class="btn-delete" ><img src="/images/ant-design_delete-fill.svg" alt=""></button>
@@ -93,7 +93,7 @@
             </div>
             <div class="temp-name">
                 <span class="date-posted"><%= moment(recipe.comments[i].createdAt).fromNow() %></span>
-                <% if(currentUser && currentUser.username === recipe.comments[i].author.username){ %>
+                <% if(currentUser && currentUser.username === recipe.comments[i].author.username || currentUser && currentUser.isAdmin){ %>
                 <form action="/recipes/<%= recipe._id %>/comments/<%= recipe.comments[i]._id %>?_method=delete" method="POST">
                     <button class="delete-btn"><img src="/images/ant-design_delete-fill.svg" alt=""></button>
                 </form>

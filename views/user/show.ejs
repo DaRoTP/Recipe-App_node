@@ -9,7 +9,7 @@
                 <h2 class="center-text"><%= user.username %>'s Profile</h2>
             <% } %>
         <div class="grey-box">
-            <% if(currentUser && currentUser.username == user.username){ %>
+            <% if(currentUser && currentUser.username == user.username || currentUser && currentUser.isAdmin){ %>
             <form class="form-container" action="/user/<%= user.username %>?_method=PUT" method="POST">
                 <div class="input-container">
                     <span><img src="/images/fa-solid_user-alt.svg" alt=""></span>

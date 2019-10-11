@@ -1,11 +1,12 @@
 //package dependencies
 const express        = require('express'),
       bodyParser     = require('body-parser'),
-      methodOverride = require("method-override"),
+      methodOverride = require('method-override'),
       mongoose       = require('mongoose'),
-      passport       = require("passport"),
-      localStrategy  = require("passport-local"),
-      flash          = require("connect-flash");
+      passport       = require('passport'),
+      localStrategy  = require('passport-local'),
+      flash          = require('connect-flash')
+      dotenv         = require('dotenv');
 
 
 //routes
@@ -17,8 +18,13 @@ const indexRoutes    = require('./routes/index.js'),
 //models
 const User = require('./models/user');
 
+//dotenv setting configuration
+dotenv.config({
+    path: "./.env"
+});
+
 const app = express();
-const PORT = 3000 || env.local.PORT;
+const PORT = process.env.PORT || 3000;
 
 //setting default view engine to .ejs
 app.set("view engine", "ejs");
@@ -66,5 +72,5 @@ app.use(indexRoutes);
 
 
 app.listen(PORT, () => {
-    console.log("Server started!");
+    console.log(`Server is now running in ${process.env.NODE_ENV} and listening on Port ${PORT}`);
 });

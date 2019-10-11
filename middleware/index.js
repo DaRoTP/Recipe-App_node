@@ -9,7 +9,7 @@ middlewareObj.checkRecipeOwnership = (req, res, next) => {
                 req.flash("error", "Post not found");
                 res.redirect("back");
             } else{
-                if(foundRecipe.author.id.equals(req.user._id)){
+                if(foundRecipe.author.id.equals(req.user._id) || req.user.isAdmin){
                     next();
                 }else{
                     req.flash("error", "You don't have permission to do that");
@@ -26,7 +26,7 @@ middlewareObj.checkCommentOwnership = (req, res, next) => {
            console.log(err);
            req.flash('error', 'Comment does not exist!');
            res.redirect('/recipes');
-       } else if(foundComment.author.id.equals(req.user._id)){
+       } else if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
             req.comment = foundComment;
             next();
        } else {
@@ -45,6 +45,8 @@ middlewareObj.isLoggedIn = (req, res, next) => {
         res.redirect("/");
     }
 }
+
+
 
 
 module.exports = middlewareObj;

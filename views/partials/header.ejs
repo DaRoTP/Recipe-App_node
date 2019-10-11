@@ -27,7 +27,10 @@
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(1)">Sing Up</a></li>
                 <li class="nav-items"><a href="#" onclick="openSlideMenu(0)">Log In</a></li>
                 <% }else { %>
-                <li class="nav-items"><a href="/user/<%= currentUser.username %>"><img src="/images/fa-solid_user-alt.svg" alt=""><%= currentUser.username %></a></li>
+                <li class="nav-items"><a href="/user/<%= currentUser.username %>"><img src="/images/fa-solid_user-alt.svg" alt="">
+                    <%= currentUser.username %>
+                    <%if(currentUser.isAdmin){%> <span> *</span> <%} %>
+                </a></li>
                 <li class="nav-items"><a href="/logout" ><img src="/images/ls-logout.svg" alt=""></a></li>
                 <% } %>
             </div>
@@ -66,6 +69,10 @@
                     <div class="input-container">
                         <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
                         <input type="email" name="email" id="" placeholder="E-Mail">
+                    </div>
+                    <div class="input-container">
+                        <span><img src="/images/ic-sharp-alternate-email.svg" alt=""></span>
+                        <input type="text" name="adminCode" id="" placeholder="Admin Code">
                     </div>
                     <button class="btn-primary">Sign Up</button>
                 </form>

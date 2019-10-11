@@ -23,7 +23,7 @@ router.post("/login", passport.authenticate("local", {
     failureRedirect: "/"
     }
     ),function(req, res){
-
+        
 });
 
 router.get("/logout", function(req, res){
@@ -34,6 +34,9 @@ router.get("/logout", function(req, res){
 
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username, name: req.body.name, email: req.body.email});
+    if(req.body.adminCode === process.env.SECRET_CODE){
+        newUser.isAdmin = true;
+    }
     User.register(newUser, req.body.password, function(err, createduser){
         if(err){
             req.flash("error", err.message);
