@@ -2,6 +2,9 @@
 
 **Recipee!!** is a web application built using RESTFUL Routes with NodeJS, ExpressJS, MongoDB and EJS.
 This application is based on many different recipe sharing websites, you can create an account and post your favorite recipes with the world.
+### Live version hosted by Heroku
+> https://recipee-daro.herokuapp.com/
+
 ## Getting Started
 ### Clone or download this repository
 
